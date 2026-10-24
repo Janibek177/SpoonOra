@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPOONORA — The Art of the Everyday</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="img/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2o6QtSeNxhagnE4BHN3YKXVrOO11kuE6kRCv_9WA5vQ&s=10">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <section id="auth-page" class="auth-box-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1 class="auth-logo">SPOONORA</h1>
+        <p class="auth-subtitle">Sign in to access the exclusive collection</p>
+      </div>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username (developer1234)" required autocomplete="username">
+          <span class="error-msg" id="username-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Enter password (dev0987)" required autocomplete="current-password">
+            <button type="button" id="toggle-password" class="toggle-password-btn" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <span class="error-msg" id="password-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+      </form>
+
+      <footer class="auth-footer">
+        <p>SPOONORA — The Art of the Everyday</p>
+      </footer>
+    </div>
+  </section>
+
+  <div id="loading-screen" class="loading-panel hidden" aria-hidden="true">
+    <div class="loading-content">
+      <div class="utensil-icon utensil-top">
+        <svg width="40" height="120" viewBox="0 0 40 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 0C28.2843 0 35 13.4315 35 30C35 46.5685 28.2843 55 20 55C11.7157 55 5 46.5685 5 30C5 13.4315 11.7157 0 20 0Z" fill="currentColor"/>
+          <rect x="17" y="50" width="6" height="70" rx="3" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <h1 class="loading-title">SPOONORA</h1>
+      <p class="loading-tagline">Discover the Art of the Spoon</p>
+
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <span id="progress-text" class="progress-text">0%</span>
+
+      <div class="utensil-icon utensil-bottom">
+        <svg width="40" height="120" viewBox="0 0 40 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="17" y="0" width="6" height="70" rx="3" fill="currentColor"/>
+          <path d="M20 65C28.2843 65 35 78.4315 35 95C35 111.569 28.2843 120 20 120C11.7157 120 5 111.569 5 95C5 78.4315 11.7157 65 20 65Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-content" class="main-content hidden">
+
+    <header class="main-navigation">
+      <div class="container navigation-container">
+        <a href="#home" class="brand-logo">SPOONORA</a>
+
+        <nav class="nav-links-wrapper" id="nav-menu">
+          <a href="#home" class="nav-item active">Home</a>
+          <a href="#about" class="nav-item">About</a>
+          <a href="#collections" class="nav-item">Collections</a>
+          <a href="#rare" class="nav-item">Rare Spoons</a>
+          <button type="button" id="open-contact-btn" class="nav-item btn-link">Contact</button>
+        </nav>
+
+        <div class="navigation-actions">
+          <button type="button" id="open-cart-btn" class="cart-trigger-btn" aria-label="Open Shopping Cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span id="cart-badge" class="cart-counter-badge">0</span>
+          </button>
+
+          <div class="user-profile-wrapper">
+            <button type="button" id="profile-toggle" class="profile-trigger" aria-label="User Profile Menu">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150&auto=format&fit=crop" alt="User Avatar" class="profile-avatar-img">
+            </button>
+
+            <div id="profile-menu" class="profile-dropdown hidden">
+              <p class="profile-username" id="display-username">developer1234</p>
+              <p class="profile-role">Registered Guest</p>
+              <hr class="profile-divider">
+              <button type="button" id="signout-btn" class="signout-trigger">Sign Out</button>
+            </div>
+          </div>
+
+          <button type="button" id="mobile-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="main-banner-section">
+        <div class="container banner-container">
+          <div class="banner-text-content">
+            <h1 class="main-headline">More Than a Spoon.<br>A Statement.</h1>
+            <p class="banner-subtext">
+              An everyday object, transformed by design. Explore the beauty, craftsmanship, and character of spoons made for people who appreciate the fine details of living.
+            </p>
+            <a href="#collections" class="btn btn-primary">Explore the Collection</a>
+          </div>
+
+          <div class="banner-image-container">
+            <img src="https://png.pngtree.com/png-vector/20251030/ourmid/pngtree-a-wooden-spoon-and-fork-are-crossed-against-black-background-png-image_17855282.webp" alt="Monochrome Elegant Spoon" class="banner-featured-img">
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee-section" aria-label="Moving Typography Showcase">
+        <div class="marquee-track track-left">
+          <div class="marquee-text-item">
+            DESIGNED FOR EVERYDAY ELEGANCE — CRAFTED WITH PRECISION — PURE FORM AND FUNCTION —
+          </div>
+          <div class="marquee-text-item" aria-hidden="true">
+            DESIGNED FOR EVERYDAY ELEGANCE — CRAFTED WITH PRECISION — PURE FORM AND FUNCTION —
+          </div>
+        </div>
+
+        <div class="marquee-track track-right">
+          <div class="marquee-text-item">
+            SMALL OBJECT. TIMELESS CHARACTER. — ELEVATING ORDINARY MOMENTS — ART YOU CAN HOLD —
+          </div>
+          <div class="marquee-text-item" aria-hidden="true">
+            SMALL OBJECT. TIMELESS CHARACTER. — ELEVATING ORDINARY MOMENTS — ART YOU CAN HOLD —
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="story-section">
+        <div class="container">
+          <h1 class="section-main-title">The Beauty Behind the Ordinary</h1>
+          
+          <div class="story-grid-layout">
+            <div class="story-text-block">
+              <p class="story-paragraph">
+                The spoon is one of humanity’s oldest and most fundamental instruments. Yet in the rush of modern life, its sculptural grace and historical weight are frequently overlooked. At SPOONORA, we reimagine this humble utensil as a canvas for artistic expression and ergonomic mastery.
+              </p>
+              <p class="story-paragraph">
+                Each piece in our selection represents a harmonious synthesis of material science and traditional metallurgy. From hand-forged sterling silver to hand-carved sustainable hardwoods and high-grade surgical stainless steel, our spoons are balanced to feel like a natural extension of the hand.
+              </p>
+              <p class="story-paragraph">
+                Our philosophy is simple: everyday items deserve extraordinary attention. Whether used for morning coffee, evening soup, or displayed as functional art, SPOONORA products remind us that elegance can be touched, held, and experienced every day.
+              </p>
+            </div>
+
+            <div class="story-image-gallery">
+              <div class="gallery-primary-frame">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkReZXpBMk_ds-o0gku3pGN2ig12-YODCU60ckUQlJIw&s=10" alt="Crafting Spoon Metallurgy">
+              </div>
+              <div class="gallery-secondary-frame-1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9F1--GzdJ7ihuWDmDD85MyERYpFghLV-hnloAuU3tcA&s=10" alt="Detail Vintage Spoon Texture">
+              </div>
+              <div class="gallery-secondary-frame-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpSjQy7ukm8Bi_ftV3kaovRX5hBV6IPtMrwIzRehUf6A&s=10" alt="Natural Wooden Spoon Texture">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collections" class="catalog-display-section">
+        <div class="container">
+          <h1 class="section-main-title">The Standard Collection</h1>
+          <p class="section-descriptive-subtitle">Curated instruments for modern dining and everyday rituals.</p>
+
+          <div id="standard-grid" class="products-showcase-grid">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoV1CvCYD4K-EMx824X3CJpYJSebpBoiX4t5CL02bHqA&s=10" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnOqUHkXYFEBBrgto-u51aRKpnV56gWXgmjAqo8YyrA&s=10" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNr3awL501K7XO1FZHhwRnnqYO1axbhIUdgcn88BPAxw&s=10" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section id="rare" class="exclusive-showcase-section">
+        <div class="container">
+          <h1 class="section-main-title">Rare & Collector's Edition</h1>
+          <p class="section-descriptive-subtitle">Fictional showcase of exceptional artisan pieces, handcrafted for connoisseurs.</p>
+
+          <div id="rare-grid" class="products-showcase-grid rare-grid-override">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE3zYGSMo-six_gysiKJbZUqTARMXmG4kPp5KmdOmk4Q&s=10" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ23kfM8eTyVdX2kA0ggmeeFfnkchuyKZcp56qkc1MLiw&s=10" alt="">
+            <img src="https://img.magnific.com/free-vector/vintage-mess-knife-vector-illustration-remixed-from-artwork-by-vincent-p-rosel_53876-125487.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container footer-layout-grid">
+        <div class="footer-widget brand-widget">
+          <a href="#home" class="footer-brand-logo">SPOONORA</a>
+          <p class="footer-quote-text">Celebrating the extraordinary in everyday objects.</p>
+          <p class="footer-info-text">Crafting high-grade eating utensils designed to transform simple meals into tactile sensory experiences.</p>
+        </div>
+
+        <div class="footer-widget">
+          <h3 class="footer-col-title">Quick Links</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Our Story</a></li>
+            <li><a href="#collections">Standard Collection</a></li>
+            <li><a href="#rare">Rare Editions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-widget">
+          <h3 class="footer-col-title">Connect</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#contact" class="trigger-contact">Contact Support</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram (Demo)</a></li>
+            <li><a href="https://pinterest.com" target="_blank" rel="noopener">Pinterest (Demo)</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter / X (Demo)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-widget newsletter-widget">
+          <h3 class="footer-col-title">Newsletter</h3>
+          <p class="newsletter-info-text">Subscribe to receive private updates on rare releases.</p>
+          
+          <form id="newsletter-form" class="newsletter-sub-form" novalidate>
+            <div class="newsletter-field-group">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-primary">Join</button>
+            </div>
+            <span class="error-msg" id="newsletter-error"></span>
+          </form>
+        </div>
+      </div>
+
+      <div class="container footer-bottom-row">
+        <p>&copy; 2026 SPOONORA. All rights reserved.</p>
+        <button type="button" id="back-to-top" class="scroll-top-trigger" aria-label="Back to Top">
+          ↑ Back to Top
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <div id="cart-modal" class="modal-backdrop-overlay hidden" aria-hidden="true">
+    <div class="modal-dialog-box cart-modal-box">
+      <div class="modal-top-bar">
+        <h2>Your Shopping Cart</h2>
+        <button type="button" id="close-cart-btn" class="modal-close-trigger" aria-label="Close Cart">&times;</button>
+      </div>
+
+      <div class="modal-content-area">
+        <div id="cart-items-list" class="cart-items-container"></div>
+
+        <div id="cart-empty-msg" class="cart-empty-state">
+          <p>Your cart is currently empty.</p>
+          <button type="button" id="continue-shopping-btn" class="btn btn-secondary">Continue Shopping</button>
+        </div>
+      </div>
+
+      <div id="cart-footer" class="cart-summary-footer hidden">
+        <div class="cart-total-display-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-price">$0.00</span>
+        </div>
+        <button type="button" id="checkout-btn" class="btn btn-primary btn-full">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-modal" class="modal-backdrop-overlay hidden" aria-hidden="true">
+    <div class="modal-dialog-box contact-modal-box">
+      <div class="modal-top-bar">
+        <h1>Get in Touch</h1>
+        <button type="button" id="close-contact-btn" class="modal-close-trigger" aria-label="Close Contact Panel">&times;</button>
+      </div>
+
+      <p class="contact-desc-text">Have questions regarding our materials or rare custom orders? Send us a message.</p>
+
+      <form id="contact-form" class="contact-input-form" novalidate>
+        <div class="form-group">
+          <label for="contact-name">Full Name</label>
+          <input type="text" id="contact-name" placeholder="Jane Doe" required>
+          <span class="error-msg" id="contact-name-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" placeholder="jane@example.com" required>
+          <span class="error-msg" id="contact-email-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" rows="4" placeholder="How can we help you?" required></textarea>
+          <span class="error-msg" id="contact-message-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

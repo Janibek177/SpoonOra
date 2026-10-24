@@ -1,0 +1,82 @@
+{
+  "credentials": {
+    "login": "developer1234",
+    "password": "dev0987"
+  },
+  "standardProducts": [
+    {
+      "id": "std-1",
+      "name": "Classic Silver Spoon",
+      "price": 24,
+      "description": "Timeless silver-plated spoon designed for everyday refine and traditional dining settings.",
+      "details": "925 Silver Plated / 18cm",
+      "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "std-2",
+      "name": "Minimalist Steel Spoon",
+      "price": 18,
+      "description": "Sleek, brushed stainless steel utensil featuring clean lines and balanced weight.",
+      "details": "316L Stainless Steel / Matte",
+      "image": "https://images.unsplash.com/photo-1615865417236-d67f57a12d6f?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "std-3",
+      "name": "Vintage Dessert Spoon",
+      "price": 32,
+      "description": "Ornate handle detailing inspired by late 19th-century European tea salons.",
+      "details": "Antique Finish Brass / 15cm",
+      "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "std-4",
+      "name": "Black Matte Spoon",
+      "price": 28,
+      "description": "Contemporary black PVD coating for a modern, dramatic aesthetic at any table.",
+      "details": "Titanium PVD Coated / 20cm",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "std-5",
+      "name": "Golden Tea Spoon",
+      "price": 36,
+      "description": "Delicate gold-finish spoon crafted specifically for afternoon espresso and tea.",
+      "details": "24k Gold Electroplate / 12cm",
+      "image": "https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "std-6",
+      "name": "Artisan Wooden Spoon",
+      "price": 22,
+      "description": "Hand-carved from sustainable walnut wood, treated with natural organic oils.",
+      "details": "Solid Walnut / Organic Finish",
+      "image": "https://images.unsplash.com/photo-1594910082502-0e2279b9423d?q=80&w=800&auto=format&fit=crop"
+    }
+  ],
+  "rareProducts": [
+    {
+      "id": "rare-1",
+      "name": "The Imperial Gold Spoon",
+      "price": 1250,
+      "description": "Solid 18k gold masterpiece with hand-engraved motifs. A masterpiece of luxury dining.",
+      "details": "Limited Edition 04/10 / Solid 18k Gold",
+      "image": "https://images.unsplash.com/photo-1615865417236-d67f57a12d6f?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "rare-2",
+      "name": "The Heritage Silver Spoon",
+      "price": 890,
+      "description": "Crafted by master silversmiths using traditional techniques passed down through generations.",
+      "details": "Pure Sterling Silver 999 / Hand Stamped",
+      "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      "id": "rare-3",
+      "name": "The Obsidian Collector's Spoon",
+      "price": 1600,
+      "description": "Carved from volcanic obsidian stone with a polished titanium core. Exceptional rarity.",
+      "details": "Natural Obsidian Stone & Titanium",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop"
+    }
+  ]
+}  
